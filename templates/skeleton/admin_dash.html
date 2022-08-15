@@ -1,0 +1,44 @@
+{% extends 'body/base.html' %}  
+{% block title %}Orders{% endblock  %}
+
+
+{% block content %}
+
+{% include 'body/navbar.html' %}
+
+<!--Table-->
+<div class="container">
+    <div class="row my-4">
+        
+        <div class="col-md-8">
+            <table class="table bg-white">
+                <thead class="bg-info">
+                    <tr class="text-white">
+                        <th scope="col">#</th>
+                        <th scope="col">Ordered Number</th>
+                        <th scope="col">Ordered By</th>
+                        <th scope="col">Date Ordered</th>
+                        <th scope="col">Total Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for order in pendingorders %}
+                    <tr>
+                        <td>{{forloop.counter}}</td>
+                        <td><a href="{% url 'order_detail' order.id %}">#ORDER_{{order.id}}</a></td>
+                        <td>{{order.ordered_by}}</td>
+                        <td>{{order.created_at}}</td>
+                        <td>{{order.total}}</td>
+
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+<!--End Table-->
+
+
+{% endblock  %}

@@ -1,0 +1,75 @@
+{% extends "body/base.html" %}
+{% block title %}Submit Order{% endblock  %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+
+<!--Table-->
+<div class="container">
+    <div class='col-md-4'></div>
+    <div class="row my-4">
+        
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header bg-info text-white">
+                   Cart Products
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <table class="table bg-white table-borderless">
+                                <thead>
+                                    <tr>
+                                        <th>SN</th>
+                                        <th>Product</th>
+                                        <th>Category</th>
+                                        <th>Quantity</th>
+                                        <th>Subtotal</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for cp in cart.cartproduct_set.all %}
+                                    <tr>
+                                        <td>{{forloop.counter}}</td>
+                                        <td>{{cp.product.title}}</td>
+                                        <td>{{cp.product.category}}</td>
+                                        <td>{{cp.quantity}}</td>
+                                        <td>{{cp.subtotal}}</td>
+                                        <td class='row'>
+                                            <a href="{% url 'manage_cart' cp.id %}?action=inc" > + </a>
+                                            <a href="{% url 'manage_cart' cp.id %}?action=dcr" > - </a>
+                                            <a href="{% url 'manage_cart' cp.id %}?action=rmv" > x </a>
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                    <tr>
+                                        <th colspan='4'>Total</th>
+                                        <th>$ {{ cart.total }}</th>
+                                        {% if cart.cartproduct_set.all %}
+                                        <th><a class='btn btn-danger' href='{% url 'empty_cart' %}'>Delete</a></th>
+                                        {% endif %}
+                                    </tr>
+                                   
+                                </tbody>
+                                <hr />
+                                {% if cart.cartproduct_set.all %}
+                                <tr>
+                                    <th><a class='btn btn-warning' href='{% url 'checkout' %}'>Checkout</a></th>
+                                </tr>
+                                {% endif %}
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<!--End Table-->
+
+
+{% endblock  %}

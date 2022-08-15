@@ -1,0 +1,10 @@
+{
+    "pylint.args": [
+        "{     \"python.linting.pylintEnabled\": true,     \"python.linting.enabled\": true,     \"python.linting.pylintArgs\": [         \"--disable=C0116,C0301,C0303,C0325,W0311,W1202,W1201,W1203,W1309,W0702,C0103,C0415\"     ] }"
+    ],
+    "python.linting.banditArgs": [
+        "\"python.autoComplete.extraPaths\": [\"./path-to-your-code\"],"
+    ],
+    "python.linting.pylintArgs": [         "--load-plugins=pylint_django", ],
+    "python.envFile": ".env"
+}
