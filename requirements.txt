@@ -11,7 +11,6 @@ dateparser==1.1.1
 defusedxml==0.7.1
 dill==0.3.5.1
 distlib==0.3.5
-dj-database-url==1.0.0
 Django==3.2
 django-allauth==0.39.1
 django-countries==5.3.3
@@ -27,15 +26,11 @@ lazy-object-proxy==1.7.1
 mccabe==0.7.0
 oauthlib==3.2.0
 pep8==1.7.1
-Pillow==9.2.0
 platformdirs==2.5.2
 prompt-toolkit==2.0.9
 pycodestyle==2.5.0
 pycparser==2.21
 PyJWT==2.4.0
-pylint==2.14.5
-pylint-django==2.5.3
-pylint-plugin-utils==0.7
 python-dateutil==2.8.2
 python-decouple==3.1
 python3-openid==3.2.0
@@ -48,12 +43,10 @@ six==1.16.0
 social-auth-core==4.3.0
 SQLAlchemy==1.4.40
 sqlparse==0.2.4
-stripe==2.27.0
 tomli==2.0.1
 tomlkit==0.11.4
 tzdata==2022.2
 tzlocal==4.2
 urllib3==1.26.11
 virtualenv==20.16.3
-wcwidth==0.2.5
-wrapt==1.14.1
+
